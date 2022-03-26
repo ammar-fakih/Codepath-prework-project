@@ -16,12 +16,14 @@ var mistakes = 0;
 function startGame() {
   //initialize game variables
   progress = 0;
+  mistakes = 0;
   gamePlaying = true;
   console.log('start');
   
   for (var i = 0; i < 8; i++) {
-    pattern[i] = Math.floor(Math.random() * 7);
+    pattern[i] =  Math.floor(Math.random() * 4) + 1;
   }
+  console.log(pattern);
 
 
   // swap the Start and Stop buttons
@@ -57,7 +59,15 @@ function playClueSequence() {
     delay += cluePauseTime;
     delay -= i * clueSpeedUpTime;
   }
+
 }
+
+function handleGameTimer() {
+  // player has 5 seconds to guess the pattern
+  timer = setTimeout(loseGame, 5000);
+}
+
+
 
 function loseGame() {
   stopGame();
