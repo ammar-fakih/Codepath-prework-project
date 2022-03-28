@@ -15,22 +15,49 @@
   </head>
   <body>
     <!-- this is the start of content -->
-    <h1>
-      Ammar's Game
-    </h1>
+    <h1>Ammar's Game</h1>
     <p>
       Welcome to my fantastic game! Repeat the pattern that you see and hear.
     </p>
-    
-      <button id="startBtn" onclick="startGame()">Start</button>
-      <button id="stopBtn" class="hidden" onclick="stopGame()">Stop</button>
+
+    <button id="startBtn" onclick="startGame()">Start</button>
+    <button id="stopBtn" class="hidden" onclick="stopGame()">Stop</button>
     <div id="gameButtonArea">
-      <button id="button1" onmousedown="startTone(1)" onmouseup="stopTone()" onclick="guess(1)"></button>
-      <button id="button2" onmousedown="startTone(2)" onmouseup="stopTone()" onclick="guess(2)"></button>
-      <button id="button3" onmousedown="startTone(3)" onmouseup="stopTone()" onclick="guess(3)"></button>
-      <button id="button4" onmousedown="startTone(4)" onmouseup="stopTone()" onclick="guess(4)"></button>
-      <button id="button5" onmousedown="startTone(5)" onmouseup="stopTone()" onclick="guess(5)"></button>
+      <button
+        id="button1"
+        onmousedown="startTone(1)"
+        onmouseup="stopTone()"
+        onclick="guess(1)"
+      ></button>
+      <button
+        id="button2"
+        onmousedown="startTone(2)"
+        onmouseup="stopTone()"
+        onclick="guess(2)"
+      ></button>
+      <button
+        id="button3"
+        onmousedown="startTone(3)"
+        onmouseup="stopTone()"
+        onclick="guess(3)"
+      ></button>
+      <button
+        id="button4"
+        onmousedown="startTone(4)"
+        onmouseup="stopTone()"
+        onclick="guess(4)"
+      ></button>
+      <button
+        id="button5"
+        onmousedown="startTone(5)"
+        onmouseup="stopTone()"
+        onclick="guess(5)"
+      ></button>
     </div>
-    <p id="timer">Timer: </p>
+    <div class="infoArea">
+      <p id="timer">Time:</p>
+      <p id="mistakesCount">Mistakes: 0</p>
+      <p id="roundCount">Round: 1/8</p>
+    </div>
   </body>
 </html>

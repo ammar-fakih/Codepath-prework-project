@@ -30,11 +30,11 @@ video {
 
 h1 {
   font-family: verdana, arial, sans-serif;
-  color: #ffb5b5;
+  color: #680d0d;
 }
 
 button {
-  padding: 10px;
+  padding: 20px;
   border-radius: 100%;
 }
 
@@ -90,4 +90,13 @@ button {
 #button5:active,
 #button5.lit {
   background: grey;
+}
+
+.infoArea {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+#mistakesCount {
+  color: #ffb5b5;
 }

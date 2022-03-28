@@ -1,7 +1,7 @@
 // global constants
 const cluePauseTime = 333; //how long to pause in between clues
 const nextClueWaitTime = 1000; //how long to wait before starting playback of the clue sequence
-const clueSpeedUpTime = 50;
+const clueSpeedUpTime = 100;
 
 //Global Variables
 var pattern = [];
@@ -18,6 +18,8 @@ function startGame() {
   //initialize game variables
   progress = 0;
   mistakes = 0;
+  updateMistakes();
+  updateRound();
   gamePlaying = true;
   console.log('start');
   clueHoldTime = 1000;
@@ -60,7 +62,18 @@ function playClueSequence() {
     delay += cluePauseTime;
   }
   clueHoldTime -= clueSpeedUpTime;
+  clearInterval(timer);
   handleGameTimer(3 * (progress + 1));
+}
+
+function updateRound() {
+  var roundText = document.getElementById('roundCount');
+  roundText.innerHTML = 'Round: ' + (progress + 1) + '/8';
+}
+
+function updateMistakes() {
+  var mistakeText = document.getElementById('mistakesCount');
+  mistakeText.innerHTML = 'Mistakes: ' + mistakes;
 }
 
 function handleGameTimer(timeLeft) {
@@ -93,15 +106,13 @@ function guess(btn) {
     return;
   }
 
-  
-
   if (btn === pattern[guessCounter]) {
     if (guessCounter === progress) {
       if (progress === pattern.length - 1) {
         winGame();
       } else {
         progress++;
-        clearInterval(timer);
+        updateRound();
         playClueSequence();
       }
     } else {
@@ -109,15 +120,13 @@ function guess(btn) {
     }
   } else {
     mistakes++;
+    updateMistakes();
     if (mistakes === 3) {
       loseGame();
     } else {
       playClueSequence();
     }
   }
-
-  
-  
 
   // add game logic here
 }
